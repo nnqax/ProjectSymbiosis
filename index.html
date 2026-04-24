@@ -4,54 +4,37 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Permanent+Marker&display=swap');
         
-        body { background-color: #34495e; display: flex; justify-content: center; padding: 40px; margin: 0; }
-        .notebook { 
-            background: #fff; width: 850px; min-height: 1000px; padding: 50px 50px 50px 80px;
-            box-shadow: 20px 20px 0px rgba(0,0,0,0.2); position: relative;
-            background-image: linear-gradient(#e1e1e1 1px, transparent 1px); background-size: 100% 30px;
-            border-radius: 5px;
+        html, body { height: 100%; margin: 0; background-color: #34495e; font-family: 'Indie Flower', cursive; }
+        .paper-page { 
+            background: #fff; min-height: 100vh; width: 850px; margin: 0 auto;
+            padding: 60px 50px 50px 100px; box-shadow: 0 0 20px rgba(0,0,0,0.3);
+            position: relative;
+            background-image: linear-gradient(#e1e1e1 1px, transparent 1px); background-size: 100% 32px;
+            line-height: 32px; font-size: 1.4em; color: #2d3436;
         }
         /* Spiral Binder */
-        .notebook::before {
-            content: ''; position: absolute; left: 20px; top: 0; bottom: 0; width: 30px;
-            background-image: radial-gradient(circle, #2c3e50 5px, transparent 6px);
-            background-size: 30px 40px;
+        .paper-page::before {
+            content: ''; position: absolute; left: 25px; top: 0; bottom: 0; width: 40px;
+            background-image: radial-gradient(circle, #2c3e50 6px, transparent 7px); background-size: 40px 42px;
         }
-        /* Red Margin Line */
-        .notebook::after { content: ''; position: absolute; left: 70px; top: 0; bottom: 0; width: 2px; background: #ff7675; }
+        /* Red Margin */
+        .paper-page::after { content: ''; position: absolute; left: 90px; top: 0; bottom: 0; width: 2px; background: #ff7675; }
 
-        h1 { font-family: 'Permanent Marker', cursive; color: #2d3436; text-align: center; margin-top: 0; }
-        nav { font-family: 'Indie Flower', cursive; text-align: center; margin-bottom: 40px; border-bottom: 2px dashed #636e72; padding-bottom: 10px; }
-        nav a { margin: 0 15px; text-decoration: none; color: #0984e3; font-weight: bold; font-size: 1.2em; }
-        
-        .logo-space { border: 3px dashed #b2bec3; width: 120px; height: 120px; margin: 0 auto; display: flex; align-items: center; justify-content: center; font-family: 'Indie Flower'; transform: rotate(-3deg); }
-        .content { font-family: 'Indie Flower', cursive; font-size: 1.3em; line-height: 30px; color: #2d3436; }
-        .doodle-box { border: 2px solid #2d3436; padding: 15px; margin: 20px 0; border-radius: 255px 15px 225px 15px/15px 225px 15px 255px; }
+        .logo-box { border: 2px dashed #636e72; width: 140px; height: 140px; float: right; display: flex; align-items: center; justify-content: center; text-align: center; transform: rotate(3deg); margin: 0 0 20px 20px; font-size: 0.8em; }
+        h1 { font-family: 'Permanent Marker', cursive; font-size: 2.2em; margin: 0; color: #0984e3; text-decoration: underline; }
+        nav { margin-bottom: 40px; font-weight: bold; }
+        nav a { text-decoration: none; color: #e17055; margin-right: 20px; }
     </style>
 </head>
 <body>
-    <div class="notebook">
-        <div class="logo-space">PROJECT LOGO</div>
+    <div class="paper-page">
+        <div class="logo-box">[PLACE LOGO HERE]</div>
         <h1>Project Symbiosis</h1>
-        <nav>
-            <a href="index.html">The Idea</a> | <a href="research.html">Journey</a> | <a href="decoder.html">The Bar</a>
-        </nav>
+        <nav><a href="index.html">Our Vision</a> <a href="research.html">The Journey</a> <a href="decoder.html">The Lab</a></nav>
 
-        <div class="content">
-            <div class="doodle-box">
-                <strong>The Vision:</strong> We're building a "Pain Expression Decoder"[cite: 23]. It uses AI to help patients who can't speak (like kids or elderly folks with dementia) let doctors know they are in pain through facial cues[cite: 23, 26].
-            </div>
+        <p>Project Symbiosis started with a simple but powerful goal: to bridge the gap between artificial intelligence and human empathy. We realized that in healthcare, there is a silent struggle for patients who can’t speak for themselves—children, elderly people with dementia, or those with disabilities who can’t tell a doctor where it hurts. Our idea was to create a Pain Expression Decoder that uses a camera to read those subtle facial cues and muscle movements that the human eye might miss, turning them into an objective pain score that healthcare providers can actually use.</p>
 
-            <p style="text-decoration: underline; font-weight: bold;">The Squad:</p>
-            <ul>
-                <li>Noor Hanafi - Coding & Tech [cite: 51]</li>
-                <li>Mohammad Shabeer - Medical Research [cite: 46]</li>
-                <li>Ananya Relia - Academic Papers [cite: 50]</li>
-                <li>Ukhun Majesty - Writing & Speaking [cite: 47]</li>
-                <li>Navya Kolati - Python & Bio-data [cite: 49]</li>
-                <li>Mahado Abdirahman - Web Dev [cite: 48]</li>
-            </ul>
-        </div>
+        <p>This project wouldn’t be possible without our diverse crew. We have Mohammad Shabeer Noorzad and Ananya Relia handling the deep dives into medical research and academic writing, while Ukhun Majesty Osezele keeps our communication sharp. On the technical side, Noor Hanafi, Navya Kolati, and Mahado Abdirahman are the ones bringing the code to life, working with Python and web development to make sure our "biological translator" actually functions in a real-world clinical setting.</p>
     </div>
 </body>
 </html>
