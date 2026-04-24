@@ -14,12 +14,20 @@
         }
         .paper-page::before { content: ''; position: absolute; left: 30px; top: 0; bottom: 0; width: 40px; background-image: radial-gradient(circle, #1a1a1a 7px, transparent 8px); background-size: 40px 42px; }
         .paper-page::after { content: ''; position: absolute; left: 95px; top: 0; bottom: 0; width: 2px; background: #ff7675; }
-        h1 { font-family: 'Mieszkanie9'; font-size: 3em; color: #40B3A2; font-weight: normal; }
+         h1 { font-family: 'Permanent Marker', cursive; font-size: 2.2em; margin: 0;  color: #61acc8;  }
+        nav { margin-bottom: 40px; font-weight: bold; }
+        nav a { text-decoration: none; color: #e17055; margin-right: 20px; }
+        a:hover{text-decoration: underline;}
+        h2 { font-family: 'Permanent Marker'; font-size: 3em; color: #40B3A2; font-weight: normal; }
     </style>
 </head>
 <body>
     <div class="paper-page">
-        <h1>Research Journey</h1>
+         <div class="logo-box"><img src="Logo.png" alt="Project Symbiosis Logo"></div>
+        <h1>Project Symbiosis</h1>
+        <nav><a href="index.html">Our Vision</a> <a href="Journey.html">The Journey</a> <a href="decoder.html">The Lab</a></nav>
+        
+        <h2>Research Journey</h2>
         <p>Our research phase opened our eyes to just how fast this field is moving. By studying existing literature, we discovered that AI models are already achieving incredible accuracy—sometimes reaching as high as ninety-nine percent—when they are trained on specific facial muscle patterns known as Action Units. This realization gave us a solid scientific foundation to build upon, as it confirmed that the subtle cues we are trying to track are clinically validated markers of physical distress. We learned that by focusing on the Facial Action Coding System, we can turn a simple video feed into a powerful diagnostic tool that standardizes how pain is interpreted across different hospital environments.</p>
 
         <p>One of the biggest lessons we took away from our research is the importance of high-quality data. We realized that for a system like this to be reliable, it must be free from bias and errors that can occur during data input. We also explored the concept of a multimodal approach, which involves combining facial cues with other physiological signals like heart rate or muscle tension. While our current focus is on visual decoding, our research has paved the way for future versions of the project that will integrate even more data points to ensure that no patient's pain goes unnoticed or misunderstood.</p>
