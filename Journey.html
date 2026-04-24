@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+          <link rel="icon" type="image/png" href="Logo.png">
         <style>
         @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Permanent+Marker&display=swap');
           .logo-box {  width: 140px; height: 140px; float: right; display: flex; align-items: center; justify-content: center; text-align: center; transform: rotate(3deg); margin: 0 0 20px 20px; font-size: 0.8em; }
         html, body { height: 100%; margin: 0; background-color: #34495e; font-family: 'Indie Flower', cursive; }
-        .paper-page { 
+        .paper-page {
             background: #fff; min-height: 100vh; width: 850px; margin: 0 auto;
             padding: 60px 50px 50px 100px; box-shadow: 0 0 20px rgba(0,0,0,0.3);
             position: relative;
@@ -20,7 +21,7 @@
         /* Red Margin */
         .paper-page::after { content: ''; position: absolute; left: 90px; top: 0; bottom: 0; width: 2px; background: #ff7675; }
 
-      
+
         h1 { font-family: 'Permanent Marker', cursive; font-size: 2.2em; margin: 0;  color: #61acc8;  }
         nav { margin-bottom: 40px; font-weight: bold; }
         nav a { text-decoration: none; color: #e17055; margin-right: 20px; }
@@ -33,11 +34,19 @@
          <div class="logo-box"><img src="Logo.png" alt="Project Symbiosis Logo" width="350px"></div>
         <h1>Project Symbiosis</h1>
         <nav><a href="index.html">Our Vision</a> <a href="Journey.html">The Journey</a> <a href="decoder.html">The Lab</a></nav>
-        
-        <h2>Research Journey</h2>
-        <p>Our research phase opened our eyes to just how fast this field is moving. By studying existing literature, we discovered that AI models are already achieving incredible accuracy—sometimes reaching as high as ninety-nine percent—when they are trained on specific facial muscle patterns known as Action Units. This realization gave us a solid scientific foundation to build upon, as it confirmed that the subtle cues we are trying to track are clinically validated markers of physical distress. We learned that by focusing on the Facial Action Coding System, we can turn a simple video feed into a powerful diagnostic tool that standardizes how pain is interpreted across different hospital environments.</p>
 
-        <p>One of the biggest lessons we took away from our research is the importance of high-quality data. We realized that for a system like this to be reliable, it must be free from bias and errors that can occur during data input. We also explored the concept of a multimodal approach, which involves combining facial cues with other physiological signals like heart rate or muscle tension. While our current focus is on visual decoding, our research has paved the way for future versions of the project that will integrate even more data points to ensure that no patient's pain goes unnoticed or misunderstood.</p>
+        <h2>Research Journey</h2>
+
+        <p>Our research phase didn't just inform us; it fundamentally validated our entire mission. It opened our eyes to just how fast this field is moving and proved we were on the right track. As outlined in our initial design document for <a href="https://canva.link/c32jjr40y3xt2ld">Milestone #2</a>, we began with a clear, pressing problem: pain assessment for non-verbal patients, children, elderly individuals with dementia, and those with disabilities, is notoriously inconsistent and subjective. Our core hypothesis was that an AI-powered Pain Expression Decoder could provide a more consistent and objective assessment than simple human evaluation, ultimately enabling faster and more accurate pain recognition.</p>
+
+<p>To test this hypothesis, we formulated a research plan that started with a deep dive into the relationship between subtle facial expressions and specific painful stimuli. We theorized that even micro-expressions, like a slight tightening of the lip muscles or a change in pupil dilation when a needle causes discomfort, could be clinically significant signals. Our goal was to see if these cues, often missed by the human eye, could be decoded.</p>
+
+<p>The results we gathered for <a href="https://canva.link/tdr6qqsk2agf6hb">Milestone #3</a> were nothing short of a revelation. By studying existing literature, we discovered that our hypothesis was already being proven true in labs around the world. AI models are achieving incredible accuracy sometimes reaching as high as ninety-nine percent when trained on specific facial muscle patterns known as Action Units. This realization gave us a solid scientific foundation to build upon, as it confirmed that the subtle cues we are trying to track are clinically validated markers of physical distress. A review by De Sario et al. in *Bioengineering*, which analyzed 15 different experiments, found that AI-based pain detection systems using the Facial Action Coding System (FACS) consistently achieved accuracy rates between 80.9% and 89.59%. Even more compelling, a study by Cascella et al. showcased a dual convolutional neural network model that hit 99% accuracy on a pre-trained dataset. We learned that by focusing on FACS, we can turn a simple video feed into a powerful diagnostic tool that standardizes how pain is interpreted across different hospital environments, removing the subjectivity that can lead to untreated suffering.</p>
+
+<p>One of the biggest lessons we took away from our research is the critical importance of high-quality data. The literature was clear: for a system like this to be truly reliable and equitable, it must be free from the bias and errors that can occur during data input. An inaccurate dataset doesn't just create a glitchy tool; it creates an untrustworthy one that could misread a patient's distress. This insight directly shaped our next steps. We also explored the concept of a multimodal approach, which involves combining facial cues with other physiological signals like heart rate or muscle tension. Research highlighted in Fang et al.'s narrative review confirmed that combining data streams produces even more accurate results. While our immediate focus is on perfecting the visual decoding, this research has strategically paved the way for future versions of Project Symbiosis that will integrate even more data points to ensure that no patient's pain goes unnoticed or misunderstood.</p>
+
+<p>This entire research journey, from hypothesis to literature review, has now culminated in a tangible first step. Having completed our foundational work, we have built a functional demo of our Pain Expression Decoder in the form of a website. This prototype brings our concept to life: it uses a camera to capture a patient's facial expressions in real time. The website sends images through JavaScript to a Python server, which analyzes the image using pre-trained facial expression models and returns a pain level assessment back to the screen. It is important to stress that this is an early-stage demo, it is not yet achieving the 99% accuracy we saw in research papers, as it operates on generic pre-trained models rather than the specialized clinical datasets we aim to implement. However, as a proof of concept, it is a direct, working translation of our research into a tool that begins to close the communication gap between a suffering patient and their caregiver.</p>
+
     </div>
 </body>
 </html>
