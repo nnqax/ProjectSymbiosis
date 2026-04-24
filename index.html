@@ -2,39 +2,54 @@
 <html lang="en">
 <head>
     <style>
-        /* Shared Styles */
-        :root { --main-blue: #2A5C82; --accent-teal: #40B3A2; --light-yellow: #FFD966; --soft-coral: #F08080; }
-        body { font-family: 'Segoe UI', sans-serif; background-color: #F0F4F8; margin: 0; }
-        .nav-bar { background: var(--main-blue); padding: 15px 40px; display: flex; justify-content: space-between; color: white; }
-        .container { max-width: 900px; margin: 30px auto; background: white; border-radius: 30px; padding: 40px; border: 3px solid var(--soft-coral); }
-        .bubble { background: var(--light-yellow); padding: 15px; border-radius: 20px; display: inline-block; font-weight: bold; margin-bottom: 20px; }
-        .research-box { border: 2px dashed var(--main-blue); border-radius: 20px; padding: 25px; margin-bottom: 20px; background: #fff9f9; }
-        .stat-circle { background: var(--accent-teal); color: white; width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; float: left; margin-right: 15px; }
+        @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Permanent+Marker&display=swap');
+        
+        body { background-color: #34495e; display: flex; justify-content: center; padding: 40px; margin: 0; }
+        .notebook { 
+            background: #fff; width: 850px; min-height: 1000px; padding: 50px 50px 50px 80px;
+            box-shadow: 20px 20px 0px rgba(0,0,0,0.2); position: relative;
+            background-image: linear-gradient(#e1e1e1 1px, transparent 1px); background-size: 100% 30px;
+            border-radius: 5px;
+        }
+        /* Spiral Binder */
+        .notebook::before {
+            content: ''; position: absolute; left: 20px; top: 0; bottom: 0; width: 30px;
+            background-image: radial-gradient(circle, #2c3e50 5px, transparent 6px);
+            background-size: 30px 40px;
+        }
+        /* Red Margin Line */
+        .notebook::after { content: ''; position: absolute; left: 70px; top: 0; bottom: 0; width: 2px; background: #ff7675; }
+
+        h1 { font-family: 'Permanent Marker', cursive; color: #2d3436; text-align: center; margin-top: 0; }
+        nav { font-family: 'Indie Flower', cursive; text-align: center; margin-bottom: 40px; border-bottom: 2px dashed #636e72; padding-bottom: 10px; }
+        nav a { margin: 0 15px; text-decoration: none; color: #0984e3; font-weight: bold; font-size: 1.2em; }
+        
+        .logo-space { border: 3px dashed #b2bec3; width: 120px; height: 120px; margin: 0 auto; display: flex; align-items: center; justify-content: center; font-family: 'Indie Flower'; transform: rotate(-3deg); }
+        .content { font-family: 'Indie Flower', cursive; font-size: 1.3em; line-height: 30px; color: #2d3436; }
+        .doodle-box { border: 2px solid #2d3436; padding: 15px; margin: 20px 0; border-radius: 255px 15px 225px 15px/15px 225px 15px 255px; }
     </style>
 </head>
 <body>
-    <nav class="nav-bar">
-        <div style="font-weight: bold;">Project Symbiosis</div>
-        <div style="nav-links">
-            <a href="index.html" style="color:white; margin-left:20px; text-decoration:none;">The Idea</a>
-            <a href="research.html" style="color:white; margin-left:20px; text-decoration:none;">Our Journey</a>
-        </div>
-    </nav>
+    <div class="notebook">
+        <div class="logo-space">PROJECT LOGO</div>
+        <h1>Project Symbiosis</h1>
+        <nav>
+            <a href="index.html">The Idea</a> | <a href="research.html">Journey</a> | <a href="decoder.html">The Bar</a>
+        </nav>
 
-    <div class="container">
-        <div class="bubble">Research & Results</div>
-        
-        <div class="research-box">
-            <div class="stat-circle">99%</div>
-            <p><strong>Cascella et al.</strong> proved that dual convolutional neural network models can reach up to 99% accuracy on pretrained datasets[cite: 7]. We also found that accuracy ranges from 80.9% to 89.59% for general AI pain detection[cite: 7].</p>
-        </div>
+        <div class="content">
+            <div class="doodle-box">
+                <strong>The Vision:</strong> We're building a "Pain Expression Decoder"[cite: 23]. It uses AI to help patients who can't speak (like kids or elderly folks with dementia) let doctors know they are in pain through facial cues[cite: 23, 26].
+            </div>
 
-        <div class="research-box" style="border-color: var(--accent-teal);">
-            <h3>Lessons Learned</h3>
+            <p style="text-decoration: underline; font-weight: bold;">The Squad:</p>
             <ul>
-                <li><strong>FACS Method:</strong> We use the Facial Action Coding System to map muscle movements to pain[cite: 7].</li>
-                <li><strong>Data Bias:</strong> We learned that bias can arise if data inputs are inaccurate, which is vital for our web system[cite: 8].</li>
-                <li><strong>Multimodal Future:</strong> Combining facial data with heart rate leads to even better results[cite: 8].</li>
+                <li>Noor Hanafi - Coding & Tech [cite: 51]</li>
+                <li>Mohammad Shabeer - Medical Research [cite: 46]</li>
+                <li>Ananya Relia - Academic Papers [cite: 50]</li>
+                <li>Ukhun Majesty - Writing & Speaking [cite: 47]</li>
+                <li>Navya Kolati - Python & Bio-data [cite: 49]</li>
+                <li>Mahado Abdirahman - Web Dev [cite: 48]</li>
             </ul>
         </div>
     </div>
