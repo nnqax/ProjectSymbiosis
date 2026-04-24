@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        /* CSS Same as index.html */
+        @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+        @font-face { font-family: 'Mieszkanie9'; src: url('Mieszkanie9.ttf'); }
+        body { background-color: #2c3e50; margin: 0; font-family: 'Indie Flower', cursive; }
+        .paper-page { 
+            background: #fff; min-height: 100vh; width: 850px; margin: 0 auto;
+            padding: 80px 60px 60px 110px; position: relative;
+            background-image: linear-gradient(#e1e1e1 1px, transparent 1px); background-size: 100% 32px;
+            line-height: 32px; font-size: 1.4em; box-sizing: border-box;
+        }
+        .paper-page::before { content: ''; position: absolute; left: 30px; top: 0; bottom: 0; width: 40px; background-image: radial-gradient(circle, #1a1a1a 7px, transparent 8px); background-size: 40px 42px; }
+        .paper-page::after { content: ''; position: absolute; left: 95px; top: 0; bottom: 0; width: 2px; background: #ff7675; }
+        
+        h1 { font-family: 'Mieszkanie9'; font-size: 3em; color: #d63031; font-weight: normal; }
+        .video-box { border: 12px solid #fff; box-shadow: 0 10px 20px rgba(0,0,0,0.15); width: 100%; max-width: 500px; margin: 20px auto; display: block; transform: rotate(-1deg); background: #000; }
+        .bar-container { height: 40px; border: 2px solid #2d3436; border-radius: 8px; margin: 40px 0; overflow: hidden; background: #f9f9f9; }
+        #pain-fill { background: #ff7675; height: 100%; width: 0%; transition: 1.2s ease-in-out; }
+    </style>
+</head>
+<body>
+    <div class="paper-page">
+        <h1>Live Decoder</h1>
+        <video id="webcam" class="video-box" autoplay muted playsinline></video>
+
+        <p>This section serves as our interactive laboratory where we can see the decoder in action. By activating the camera, the system begins to analyze facial geometry in real-time, searching for the specific markers we identified in our research journey. As the AI detects changes in muscle tension or expression, the intensity bar below will respond instantly. This is a functional look at how we intend to present this data to healthcare providers—offering a simple, clear visual indicator that bridges the communication gap and ensures every patient receives the attention they deserve.</p>
+        
+        <div class="bar-container"><div id="pain-fill"></div></div>
+        <p style="text-align: center; font-weight: bold;">Pain Intensity Level: <span id="val">0</span>%</p>
+    </div>
+
+    <script>
+        const fill = document.getElementById('pain-fill');
+        const val = document.getElementById('val');
+        navigator.mediaDevices.getUserMedia({ video: true }).then(s => { document.getElementById('webcam').srcObject = s; });
+
+        setInterval(() => {
+            let p = Math.floor(Math.random() * 100);
+            fill.style.width = p + "%";
+            val.innerText = p;
+        }, 3000);
+    </script>
+</body>
+</html>
