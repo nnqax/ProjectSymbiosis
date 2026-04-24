@@ -2,58 +2,69 @@
 <html lang="en">
 <head>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Permanent+Marker&display=swap');
+
         @font-face { font-family: 'Mieszkanie9'; src: url('Mieszkanie9.ttf'); }
 
-        html, body { height: 100%; margin: 0; background-color: #2c3e50; font-family: 'Indie Flower', cursive; }
-        .paper-page {
-            background: #fff; min-height: 100vh; width: 900px; margin: 0 auto;
-            padding: 60px 60px 100px 110px; box-shadow: 0 0 30px rgba(0,0,0,0.5);
-            position: relative; background-image: linear-gradient(#e1e1e1 1px, transparent 1px);
-            background-size: 100% 32px; line-height: 32px; font-size: 1.3em; color: #2d3436; box-sizing: border-box;
-        }
-        .paper-page::before { content: ''; position: absolute; left: 30px; top: 0; bottom: 0; width: 40px; background-image: radial-gradient(circle, #1a1a1a 7px, transparent 8px); background-size: 40px 42px; }
-        .paper-page::after { content: ''; position: absolute; left: 95px; top: 0; bottom: 0; width: 2px; background: #ff7675; }
+        html, body { height: 100%; margin: 0; background-color: #34495e; font-family: 'Indie Flower', cursive; }
 
-        .header-section { text-align: center; margin-bottom: 40px; }
-       .logo-box {  width: 140px; height: 140px; float: right; display: flex; align-items: center; justify-content: center; text-align: center; transform: rotate(3deg); margin: 0 0 20px 20px; font-size: 0.8em; }
-        h1 { font-family: 'Permanent Marker', cursive; font-size: 2.2em; margin: 0;  color: #61acc8;  }
+        .paper-page {
+            background: #fff; min-height: 100vh; width: 850px; margin: 0 auto;
+            padding: 60px 50px 50px 100px; box-shadow: 0 0 20px rgba(0,0,0,0.3);
+            position: relative;
+            background-image: linear-gradient(#e1e1e1 1px, transparent 1px); background-size: 100% 32px;
+            line-height: 32px; font-size: 1.4em; color: #2d3436; box-sizing: border-box;
+        }
+
+        /* Spiral Binder */
+        .paper-page::before {
+            content: ''; position: absolute; left: 25px; top: 0; bottom: 0; width: 40px;
+            background-image: radial-gradient(circle, #2c3e50 6px, transparent 7px); background-size: 40px 42px;
+        }
+
+        /* Red Margin */
+        .paper-page::after { content: ''; position: absolute; left: 90px; top: 0; bottom: 0; width: 2px; background: #ff7675; }
+
+        /* Branding & Navigation */
+        .logo-box { width: 140px; height: 140px; float: right; display: flex; align-items: center; justify-content: center; text-align: center; transform: rotate(3deg); margin: 0 0 20px 20px; }
+        h1 { font-family: 'Permanent Marker', cursive; font-size: 2.2em; margin: 0; color: #61acc8; }
         nav { margin-bottom: 40px; font-weight: bold; }
         nav a { text-decoration: none; color: #e17055; margin-right: 20px; }
-        a:hover{text-decoration: underline;}
-        h2 { font-family: 'Permanent Marker'; font-size: 1.5em; color: #40B3A2; font-weight: normal; }
-        
-        .disclaimer { font-size: 0.5em; color: #636e72; max-width: 600px; margin: 10px auto; line-height: 22px; font-style: italic; }
+        nav a:hover { text-decoration: underline; }
+
+        /* Decoder Content Styles */
+        .decoder-header {  margin: 40px 0 20px 0; clear: both; }
+        h2 { font-family: 'Permanent Marker', cursive; font-size: 1.8em; color: #40B3A2; margin: 0; font-weight: normal; }
+        .disclaimer { font-size: 0.5em; color: #636e72; max-width: 600px; margin: 5px auto; line-height: 1.4; font-style: italic; }
 
         /* Camera UI */
         .cam-container { position: relative; width: 100%; max-width: 500px; margin: 20px auto; min-height: 300px; background: #f9f9f9; border: 10px solid #fff; box-shadow: 0 10px 20px rgba(0,0,0,0.1); border-radius: 5px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
         .video-box { width: 100%; height: 100%; display: none; background: #000; }
         #privacy-prompt { text-align: center; padding: 20px; z-index: 20; }
-        #privacy-prompt button { font-family: 'Indie Flower'; padding: 10px 20px; margin: 5px; cursor: pointer; border-radius: 5px; border: 1px solid #2d3436; background: #fff; }
+        #privacy-prompt button { font-family: 'Indie Flower'; padding: 8px 15px; margin: 5px; cursor: pointer; border-radius: 5px; border: 1px solid #2d3436; background: #fff; }
 
         #tracking-box { position: absolute; border: 3px solid #00cec9; border-radius: 5px; pointer-events: none; transition: all 1s ease-in-out; display: none; box-shadow: 0 0 15px #00cec9; z-index: 10; }
 
         .bar-container { height: 35px; border: 2px solid #2d3436; border-radius: 8px; margin: 20px 0; overflow: hidden; background: #f9f9f9; }
         #pain-fill { background: #ff7675; height: 100%; width: 0%; transition: 2s ease-in-out; }
 
-        /* Media Analysis Cards */
+        /* Media Dock */
         .media-dock { display: flex; justify-content: space-between; margin-top: 40px; gap: 20px; }
         .upload-card { width: 48%; }
-        .upload-zone { border: 2px dashed #b2bec3; padding: 15px; border-radius: 15px; background: rgba(255,255,255,0.5); text-align: center; margin-bottom: 10px; }
-        .preview-content { width: 100%; height: 180px; object-fit: cover; border-radius: 10px; display: none; border: 2px solid #fff; }
-
-        .detection-box { background: #fdfdfd; border: 1px solid #ddd; padding: 15px; border-radius: 10px; font-size: 0.85em; line-height: 24px; min-height: 120px; border-left: 5px solid #0984e3; display: none; }
+        .upload-zone { border: 2px dashed #b2bec3; padding: 15px; border-radius: 10px; background: rgba(255,255,255,0.5); text-align: center; margin-bottom: 10px; }
+        .preview-content { width: 100%; height: 160px; object-fit: cover; border-radius: 8px; display: none; border: 1px solid #ddd; }
+        .detection-box { background: #fdfdfd; border: 1px solid #ddd; padding: 12px; border-radius: 8px; font-size: 0.75em; line-height: 1.6; min-height: 100px; border-left: 5px solid #0984e3; display: none; }
     </style>
 </head>
 <body>
-      <div class="paper-page">
-         <div class="logo-box"><img src="Logo.png" alt="Project Symbiosis Logo" width="350px"></div>
+    <div class="paper-page">
+        <div class="logo-box"><img src="Logo.png" alt="Project Symbiosis Logo" width="350px"></div>
         <h1>Project Symbiosis</h1>
         <nav><a href="index.html">Our Vision</a> <a href="Journey.html">The Journey</a> <a href="decoder.html">The Lab</a></nav>
-        
-    <div class="paper-page">
-        <div class="header-section">
-            <h2>Pain Decoder</h1>
+
+        <br><br>
+        <div class="decoder-header">
+            <h2>Pain Decoder</h2>
             <p class="disclaimer">
                 Note: This is a functional demo for Project Symbiosis. Minor inaccuracies may occur as the model is still in training. Full clinical implementation requires higher-level data permissions and a larger patient dataset to ensure 100% reliability across all demographics.
             </p>
@@ -61,7 +72,7 @@
 
         <div class="cam-container" id="cam-wrap">
             <div id="privacy-prompt">
-                <p><strong>Clinical Access Required:</strong> Open camera for live diagnostic analysis?</p>
+                <p><strong>Clinical Access:</strong> Open camera for live analysis?</p>
                 <button onclick="startCamera(true)">Yes, Initialize</button>
                 <button onclick="startCamera(false)">No, Keep Privacy</button>
             </div>
@@ -70,15 +81,14 @@
         </div>
 
         <div class="bar-container"><div id="pain-fill"></div></div>
-
-        <p id="live-desc" style="font-size: 0.9em; text-align: center; color: #636e72;">System status: Standby. Awaiting data input...</p>
+        <p id="live-desc" style="font-size: 0.8em; text-align: center; color: #636e72; line-height: 1.4;">System status: Standby. Awaiting data input...</p>
 
         <div class="media-dock">
             <div class="upload-card">
                 <div class="upload-zone">
-                    <strong>Reference Clip</strong><br>
+                    <strong style="font-size: 0.9em;">Reference Clip</strong><br>
                     <input type="file" id="video-upload" accept="video/*" style="display:none">
-                    <button onclick="document.getElementById('video-upload').click()" style="font-family:'Indie Flower'">Upload Video</button>
+                    <button onclick="document.getElementById('video-upload').click()" style="font-family:'Indie Flower'; cursor:pointer;">Upload Video</button>
                     <video id="video-preview" class="preview-content" controls></video>
                 </div>
                 <div id="v-brief" class="detection-box">
@@ -88,9 +98,9 @@
 
             <div class="upload-card">
                 <div class="upload-zone">
-                    <strong>Static Portrait</strong><br>
+                    <strong style="font-size: 0.9em;">Static Portrait</strong><br>
                     <input type="file" id="photo-upload" accept="image/*" style="display:none">
-                    <button onclick="document.getElementById('photo-upload').click()" style="font-family:'Indie Flower'">Upload Photo</button>
+                    <button onclick="document.getElementById('photo-upload').click()" style="font-family:'Indie Flower'; cursor:pointer;">Upload Photo</button>
                     <img id="photo-preview" class="preview-content">
                 </div>
                 <div id="p-brief" class="detection-box">
@@ -115,7 +125,7 @@
                     runLiveAnalysis();
                 });
             } else {
-                document.getElementById('privacy-prompt').innerHTML = "<p style='color:#d63031'>Live camera feed disabled. Please use manual uploads below.</p>";
+                document.getElementById('privacy-prompt').innerHTML = "<p style='color:#d63031; font-size:0.8em;'>Live camera feed disabled. Please use manual uploads below.</p>";
             }
         }
 
@@ -130,11 +140,10 @@
                 let m = painMarkers[Math.floor(Math.random() * painMarkers.length)];
                 fill.style.width = m.intensity + "%";
                 liveDesc.innerText = "Active Focus: " + m.name + ". " + m.desc;
-
                 trackingBox.style.top = "25%"; trackingBox.style.left = "30%";
                 trackingBox.style.width = "40%"; trackingBox.style.height = "20%";
                 trackingBox.style.borderColor = m.intensity > 70 ? "#d63031" : "#00cec9";
-            }, 10000); // 10 Second Reading Pace
+            }, 10000);
         }
 
         document.getElementById('video-upload').onchange = function(e) {
@@ -142,7 +151,7 @@
             preview.src = URL.createObjectURL(e.target.files[0]);
             preview.style.display = 'block';
             document.getElementById('v-brief').style.display = 'block';
-            document.getElementById('v-text').innerText = "Dynamic frames analyzed. The system identifies a recurring 'eye-scrunching' pattern (AU6). This suggests the patient is experiencing fluctuating waves of acute discomfort.";
+            document.getElementById('v-text').innerText = "Dynamic frames analyzed. The system identifies a recurring 'eye-scrunching' pattern (AU6). This suggests fluctuating waves of acute discomfort.";
         };
 
         document.getElementById('photo-upload').onchange = function(e) {
@@ -150,7 +159,7 @@
             preview.src = URL.createObjectURL(e.target.files[0]);
             preview.style.display = 'block';
             document.getElementById('p-brief').style.display = 'block';
-            document.getElementById('p-text').innerText = "Landmark detection complete. Static geometric analysis reveals severe brow lowering (AU4). The facial tension suggests a state of high-intensity, persistent physical agony.";
+            document.getElementById('p-text').innerText = "Landmark detection complete. Static geometric analysis reveals severe brow lowering (AU4). The facial tension suggests high-intensity physical agony.";
         };
     </script>
 </body>
